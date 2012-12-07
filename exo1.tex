@@ -1,19 +1,23 @@
-\section{Exercice 1}
+\section{Exercice 1 : L'utilisation des réseaux de Pétri pour le
+  contrôle commande}
 \subsection{Question 1}
-à faire sous tina
+\textit{Cf.} figure $3$ de l'énoncé.
 \subsection{Question 2}
-En $p_1$, le pochoir ne reçoit aucun signal.
-En $t_1$
 Notons $A_d$ et $R_d$ respectivement avancer et reculer le pochoir de
-droite.
-Notons $A_g$ et $R_g$ respectivement avancer et reculer le pochoir de gauche.
-Quand un pochoir avance, il ne recule pas.
-On commence donc pas le faire avancer ($p_3$ et $p_2$) puis reculer ($p_4$ et $p_5$)
-On distingue un bloc parallélisme dans la figure 3 qui signie que les
-pochoirs droite et gauche sont actionnés en parallèle.
+droite.  Notons $A_g$ et $R_g$ respectivement avancer et reculer le
+pochoir de gauche.  Quand un pochoir avance, il ne recule pas.  On
+commence donc pas le faire avancer ($p_3$ et $p_2$) puis reculer
+($p_4$ et $p_5$) On distingue un bloc de parallélisme dans la figure 3
+qui signifie que les pochoirs droite et gauche sont actionnés en
+parallèle.
 
-\subsection{Question 3}
+Au début d'un tour, en $p_1$, le pochoir ne reçoit aucun signal.  
 
+Puis, en $t_1$, l'opération commence car on a les signaux $p$ et $q$ à
+vrai. On rentre ensuite dans le bloc de parallélisme précédemment
+décrit, jusqu'à $t_6$ où, après immobilisation à droite et à gauche
+des pochoirs (places $p_6$ et $p_7$), un nouveau tour peut commencer
+(retour en place $p_1$).
 \subsection{Question 3}
 
 \subsection{Question 4}
@@ -21,9 +25,23 @@ pochoirs droite et gauche sont actionnés en parallèle.
 \subsection{Question 5}
 
 \subsection{Question 6}
+Matrice $C$ d'incidence du réseau de pétri de la figure $3$.
 
+ $ \begin{pmatrix}
+C&t_1&t_2&t_3&t_4&t_5&t_6 \\
+p_1&t_1&t_2&t_3&t_4&t_5&t_6 \\
+p_2&t_1&t_2&t_3&t_4&t_5&t_6 \\
+p_3&t_1&t_2&t_3&t_4&t_5&t_6 \\
+p_4&t_1&t_2&t_3&t_4&t_5&t_6 \\
+p_5&t_1&t_2&t_3&t_4&t_5&t_6 \\
+p_6&t_1&t_2&t_3&t_4&t_5&t_6 \\
+p_7&t_1&t_2&t_3&t_4&t_5&t_6 
+\end{pmatrix}$
+
+TODO 
 \subsection{Question 7}
 
 \subsection{Question 8}
 
 \subsection{Question 9}
+graphe d'évènements ????
