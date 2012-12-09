@@ -1,3 +1,104 @@
 \section{Exercice 7}
 \subsection{Question 1}
+
+TODO (below : just an example in tikz)
+
+\begin{tikzpicture}[node distance=1.3cm,>=stealth',bend angle=45,auto]
+
+  \tikzstyle{place}=[circle,thick,draw=blue!75,fill=blue!20,minimum size=6mm]
+  \tikzstyle{red place}=[place,draw=red!75,fill=red!20]
+  \tikzstyle{transition}=[rectangle,thick,draw=black!75,
+  			  fill=black!20,minimum size=4mm]
+
+  \tikzstyle{every label}=[red]
+
+  \begin{scope}
+    % First net
+    \node [place,tokens=1] (w1)                                    {};
+    \node [place] (c1) [below of=w1]                      {};
+    \node [place] (s)  [below of=c1,label=above:$s\le 3$] {};
+    \node [place] (c2) [below of=s]                       {};
+    \node [place,tokens=1] (w2) [below of=c2]                      {};
+
+    \node [transition] (e1) [left of=c1] {}
+      edge [pre,bend left]                  (w1)
+      edge [post,bend right]                (s)
+      edge [post]                           (c1);
+
+    \node [transition] (e2) [left of=c2] {}
+      edge [pre,bend right]                 (w2)
+      edge [post,bend left]                 (s)
+      edge [post]                           (c2);
+
+    \node [transition] (l1) [right of=c1] {}
+      edge [pre]                            (c1)
+      edge [pre,bend left]                  (s)
+      edge [post,bend right] node[swap] {2} (w1);
+
+    \node [transition] (l2) [right of=c2] {}
+      edge [pre]                            (c2)
+      edge [pre,bend right]                 (s)
+      edge [post,bend left]  node {2}       (w2);
+  \end{scope}
+
+  \begin{pgfonlayer}{background}
+    \filldraw [line width=4mm,join=round,black!10]
+      (w1.north  -| l1.east)  rectangle (w2.south  -| e1.west);
+  \end{pgfonlayer}
+\end{tikzpicture}
+
+
 \subsection{Question 2}
+
+TODO (below : just an example in tikz)
+
+\begin{tikzpicture}[node distance=1.3cm,>=stealth',bend angle=45,auto]
+
+  \tikzstyle{place}=[circle,thick,draw=blue!75,fill=blue!20,minimum size=6mm]
+  \tikzstyle{red place}=[place,draw=red!75,fill=red!20]
+  \tikzstyle{transition}=[rectangle,thick,draw=black!75,
+  			  fill=black!20,minimum size=4mm]
+
+  \tikzstyle{every label}=[red]
+ \begin{scope}[xshift=6cm]
+    % Second net
+    \node [place,tokens=1]
+                      (w1')                                                {};
+    \node [place]     (c1') [below of=w1']                                 {};
+    \node [red place] (s1') [below of=c1',xshift=-5mm,label=left:$s$]      {};
+    \node [red place,tokens=3]
+                      (s2') [below of=c1',xshift=5mm,label=right:$\bar s$] {};
+    \node [place]     (c2') [below of=s1',xshift=5mm]                      {};
+    \node [place,tokens=1]
+                      (w2') [below of=c2']                                 {};
+
+    \node [transition] (e1') [left of=c1'] {}
+      edge [pre,bend left]                  (w1')
+      edge [post]                           (s1')
+      edge [pre]                            (s2')
+      edge [post]                           (c1');
+
+    \node [transition] (e2') [left of=c2'] {}
+      edge [pre,bend right]                 (w2')
+      edge [post]                           (s1')
+      edge [pre]                            (s2')
+      edge [post]                           (c2');
+
+    \node [transition] (l1') [right of=c1'] {}
+      edge [pre]                            (c1')
+      edge [pre]                            (s1')
+      edge [post]                           (s2')
+      edge [post,bend right] node[swap] {2} (w1');
+
+    \node [transition] (l2') [right of=c2'] {}
+      edge [pre]                            (c2')
+      edge [pre]                            (s1')
+      edge [post]                           (s2')
+      edge [post,bend left]  node {2}       (w2');
+  \end{scope}
+
+  \begin{pgfonlayer}{background}
+    \filldraw [line width=4mm,join=round,black!10]
+      (w1'.north -| l1'.east) rectangle (w2'.south -| e1'.west);
+  \end{pgfonlayer}
+\end{tikzpicture}
