@@ -12,24 +12,28 @@ TODO (below : just an example in tikz)
 Nous considérons le marquage associé aux places $(c_0, c'_0, d_0, d_1,
 d_2, f_0)$.
 \begin{center}
-\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=2cm,
+\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance=3cm,
   thick,main
   node/.style={circle,fill=white,draw,font=\sffamily\Large\bfseries},
   inner sep = 0.5pt]
   \node[main node] (1)[label=center:$\langle n\ 0\ 1\ 0\ 0\ 0 \rangle$] {} ;
   \node[main node] (2) [below of=1] [label=center:$\langle n-1\ 2\ 1\ 1\ 0\ 0 \rangle$] {};
   \node[main node] (3) [below left of=2]  [label=center:$\langle n-2\ 4\ 1\ 1\ 0\ 0 \rangle$] {};
-  \node[main node] (4) [below of=2]  [label=center:$\langle n\ 1\ 1\ 1\ 1\ 0 \rangle$] {};
+  \node[main node] (4) [below of=2]  [label=center:$\langle n\ \omega\ 1\ \omega\ \omega\ 0 \rangle$] {};
   \node[main node] (5) [below right of=2]  [label=center:$\langle
     n-1\ 2\ 1\ 0\ 1\ 0 \rangle$] {};
- \node[main node] (6) [below right of=2] [label=center:$\langle n\ 0\ 0\ 1\ 0\ 0 \rangle$] {} ;
-  \node[main node] (7) [below left of=3]  [label=center:$\langle
-    n-2\ 4\ 1\ 1\ 0\ 0 \rangle$] {?};
- \node[main node] (8) [below  of=3]  [label=center:$\langle
-   n-2\ 4\ 1\ 1\ 0\ 0 \rangle$] {?};
- \node[main node] (9) [below right of=3]  [label=center:$\langle
-   n-2\ 4\ 1\ 1\ 0\ 0 \rangle$] {?};
- \node[main node] (10) [below right of=3]  [label=center:$\langle n-2\ 4\ 0\ 2\ 0\ 0 \rangle$] {};
+ \node[main node] (6) [above of = 3] [label=center:$\langle n\ 0\ 0\ 1\ 0\ 0 \rangle$] {} ;
+  \node[main node] (7) [below left of=3]  [label=left:$\langle
+    n-3\ 6\ 1\ 1\ 0\ 0 \rangle$] {};
+ \node[main node] (8) [above  of=7]  [label=center:$\langle
+   n-2\ 4\ 1\ 0\ 1\ 0 \rangle$] {};
+  \node[main node] (9) [below right of=4]  [label=center:$\langle
+    n\ 1\ 1\ 1\ 1\ 0 \rangle$] {?};
+ \node[main node] (10) [below  of=4]  [label=center:$\langle
+   n\ 1\ 1\ 1\ 1\ 0 \rangle$] {?};
+ \node[main node] (11) [below left of=4]  [label=center:$\langle
+   n\ 1\ 1\ 1\ 1\ 0 \rangle$] {?};
+ \node[main node] (12) [above right of=9]  [label=center:$\langle n\ 1\ 1\ 1\ 1\ 0 \rangle$] {?};
 
   \path[every node/.style={font=\sffamily\small}]
     (1)  edge node [right] {$t_1$} (2)
@@ -41,8 +45,10 @@ d_2, f_0)$.
          edge node [right] {$t_3$} (6)
    (3)   edge node [right] {$t_1$} (7)
          edge node [right] {$t_4$} (8)
-         edge node [right] {$t_2$} (9)
-         edge node [right] {$t_3$} (10);
+   (4)   edge node [right] {$t_1$} (9)
+         edge node [right] {$t_2$} (10)
+         edge node [right] {$t_4$} (12)
+         edge node [right] {$t_5$} (11);
         
 \end{tikzpicture}
 \end{center}
