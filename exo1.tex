@@ -19,29 +19,58 @@ décrit, jusqu'à $t_6$ où, après immobilisation à droite et à gauche
 des pochoirs (places $p_6$ et $p_7$), un nouveau tour peut commencer
 (retour en place $p_1$).
 \subsection{Question 3}
-
+Le réseau de la figure $3$ est cohérent. En effet, de $p_1$ à $t_1$ un
+seul jeton est en circulation. De $t_1$ à $t_6$ deux jetons sont en
+circuation, mais dans une structure de type parallélisme (un jeton par
+branche). En $t_6$, pour le retour à $p_1$, un seul jeton est à
+nouveau en circulation. Chaque place ne reçoit donc qu'une seule
+marque tout au long des évolutions du réseau.
 \subsection{Question 4}
-
+Les combinaisons booléennes des signaux de sorties incompatibles sont
+situées de manière séquentielle (et non parallèle). De plus, le réseau
+est cohérent. Cela nous garantit ainsi l'exclusion mutuelle pour tous
+les couples de places associés à ces étiquettes.
 \subsection{Question 5}
+Le graphe des marquages accessibles associé au réseau de la figure $3$
+est le suivant~:
+$(p_1, p_2, p_3, p_4, p_5, p_6, p_7)$
+
+**************************************
+
+(sommet $0$) $(1, 0, 0, 0, 0, 0, 0)$
+
+(a pour voisin)
+
+(sommet $1$) $(0, 1, 1, 0, 0, 0, 0)$
+
+(a pour voisin)
+
+(sommet $2$) $(0, 0, 0, 1, 1, 0, 0)$
+
+(a pour voisin)
+
+(sommet $3$) $(0, 0, 0, 0, 0, 1, 1)$
+
+et retour à sommet $0$.
 
 \subsection{Question 6}
 Matrice $C$ d'incidence du réseau de pétri de la figure $3$.
 
  $ \begin{pmatrix}
 C&t_1&t_2&t_3&t_4&t_5&t_6 \\
-p_1&t_1&t_2&t_3&t_4&t_5&t_6 \\
-p_2&t_1&t_2&t_3&t_4&t_5&t_6 \\
-p_3&t_1&t_2&t_3&t_4&t_5&t_6 \\
-p_4&t_1&t_2&t_3&t_4&t_5&t_6 \\
-p_5&t_1&t_2&t_3&t_4&t_5&t_6 \\
-p_6&t_1&t_2&t_3&t_4&t_5&t_6 \\
-p_7&t_1&t_2&t_3&t_4&t_5&t_6 
+p_1& -1&0&0&0&0&1 \\
+p_2&1&-1&0&0&0&0 \\
+p_3&1&0&-1&0&0&0 \\
+p_4&0&1&0&-1&0&0 \\
+p_5&0&0&1&0&-1&0 \\
+p_6&0&0&0&0&1&-1 \\
+p_7&0&0&0&1&0&-1 
 \end{pmatrix}$
 
-TODO 
 \subsection{Question 7}
-
+TODO
 \subsection{Question 8}
-
+TODO
 \subsection{Question 9}
 graphe d'évènements ????
+TODO
