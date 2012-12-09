@@ -68,9 +68,46 @@ p_7&0&0&0&1&0&-1
 \end{pmatrix}$
 
 \subsection{Question 7}
-TODO
+Calcul des P-semi flots associés au réseau de la figure
+$3$. Appliquons pour cela l'algorithme de Farkas. sur la matrice $C$
+précédente.
+
+On commence par  
+$ \begin{pmatrix}
+P& -1&0&0&0&0&1 \\
+Q&1&-1&0&0&0&0 \\
+R&1&0&-1&0&0&0 \\
+S&0&1&0&-1&0&0 \\
+T&0&0&1&0&-1&0 \\
+U&0&0&0&0&1&-1 \\
+V&0&0&0&1&0&-1 
+\end{pmatrix}$
+
+et l'on finit par trouver 
+$ \begin{pmatrix}
+P+Q+S& -1&0&1 \\
+P+R+T&0&-1&0 \\
+U&0&1&-1 \\
+P+Q+S+V&0&0&0
+\end{pmatrix}$
+ce qui nous donne le P-semi flot $P+Q+S+V$, correspondant donc au
+vecteur $(1, 1, 0, 1, 0, 0, 0, 1)$.
+
+Par la suite, aucun autre P-semi flot ne peur être trouvé car, à
+l'étape suivante, la matrice se réduit à
+$ \begin{pmatrix}
+P+R+T&-1&0 \\
+U&1&-1
+\end{pmatrix}$
 \subsection{Question 8}
-TODO
+Ce réseau n'admet pas de blocage car tout sommet est l'origine d'au
+moins un arc.
 \subsection{Question 9}
-graphe d'évènements ????
-TODO
+Le réseau est bien un graphe d'évènement car chaque place possède une
+seule transition d'entrée et une seule transition de sortie.
+
+Les deux circuits élémentaires sont~:
+\begin{itemize}
+\item $p_1 -->p_3 --> p_5 --> p_6 --> p_1$
+\item $p_1 --> p_2 --> p_4 --> p_7 --> p_1$
+\end{itemize}
