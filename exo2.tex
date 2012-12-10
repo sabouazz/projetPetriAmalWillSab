@@ -14,40 +14,71 @@ TODO (below : just an example in tikz)
 
   \begin{scope}
     % First net
-    \node [place,tokens=1] (w1)                                    {};
-    \node [place] (c1) [below of=w1]                      {};
+    \node [place,tokens=1] (rac-u)                                    {};
+    \node [place] (c1) [below of=rac-u]                      {};
     \node [place] (s)  [below of=c1,label=above:$s\le 3$] {};
     \node [place] (c2) [below of=s]                       {};
-    \node [place,tokens=1] (w2) [below of=c2]                      {};
+    \node [place,tokens=1] (repos-c) [below of=c2]                      {};
 
     \node [transition] (e1) [left of=c1] {}
-      edge [pre,bend left]                  (w1)
+      edge [pre,bend left]                  (rac-u)
       edge [post,bend right]                (s)
       edge [post]                           (c1);
 
     \node [transition] (e2) [left of=c2] {}
-      edge [pre,bend right]                 (w2)
+      edge [pre,bend right]                 (repos-c)
       edge [post,bend left]                 (s)
       edge [post]                           (c2);
 
     \node [transition] (l1) [right of=c1] {}
       edge [pre]                            (c1)
       edge [pre,bend left]                  (s)
-      edge [post,bend right] node[swap] {2} (w1);
+      edge [post,bend right] node[swap] {4} (rac-u);
 
     \node [transition] (l2) [right of=c2] {}
       edge [pre]                            (c2)
       edge [pre,bend right]                 (s)
-      edge [post,bend left]  node {2}       (w2);
+      edge [post,bend left]  node {2}       (repos-c);
   \end{scope}
 
   \begin{pgfonlayer}{background}
     \filldraw [line width=4mm,join=round,black!10]
-      (w1.north  -| l1.east)  rectangle (w2.south  -| e1.west);
+      (rac-u.north  -| l1.east)  rectangle (repos-c.south  -| e1.west);
   \end{pgfonlayer}
 \end{tikzpicture}
 
 \subsection*{Question 2}
+
+On veut que le réseau soit borné, cohérent et réinitialisable. Nous le
+montrons par un Divide Et Impera informel. Commençons par distinguer
+trois sous-réseaux~:
+\begin{itemize}
+\item le réseau utilisateur,
+\item le réseau contrôleur,
+\item le réseau synchronisé.
+\end{itemize}
+
+% insert image schématique du réseau hierarchique
+
+Nous pouvons constater pour commencer que les jetons ne sont pas
+dupliqués à l'intérieur de ces réseaux. Remarquons ensuite que le
+jeton de chacun des deux réseaux parallèles ne quitte son réseaux
+que de manière synchronisée avec l'autre, en passant par la transition
+\textsc{acceptation}, et que cette transition produit un unique jeton
+dans le réseau synchronisé.
+Une fois un jeton dans le réseau synchronisé, il ne peut le quitter
+qu'en produisant un jeton dans chacun des réseaux parallèles, par le
+bias de \textsc{racrochage-en-communication} ou bien
+\textsc{racrochage-en-faux-appel}.
+Nous pouvons donc conclure que le réseau et borné et réinitialisable,
+et possède soit $1$, soit $2$ jetons, suivant s'il est en mode synchronisé ou en mode parallèle~:
+\begin{itemize}
+\item $1$ dans chaque réseau parallèle, ou 
+\item $1$ dans le réseau synchronisé.
+\end{itemize} 
+Nous n'avons alors qu'au plus un jeton dans chaque sous-réseau, et de
+ce fait le réseau est forcément cohérent.
+
 \subsection*{Question 3}
 
 Matrice $C$ d'incidence du réseau de pétri.

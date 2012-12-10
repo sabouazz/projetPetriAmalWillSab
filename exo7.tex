@@ -1,5 +1,5 @@
-\section{Exercice 7}
-\subsection{Question 1}
+\section*{Exercice 7~: Sémaphore}
+\subsection*{Question 1}
 
 TODO (below : just an example in tikz)
 
@@ -48,7 +48,14 @@ TODO (below : just an example in tikz)
 \end{tikzpicture}
 
 
-\subsection{Question 2}
+Par définition d'un sémaphore, $P$ et $V$ sont totalement
+parallèlisés, et ne sont donc pas en concurrence l'un par rapport à
+l'autre. Cependant, ils peuvent être en concurrence par rapport à
+eux-même.
+
+\subsection*{Question 2}
+
+On représente une couleur par processus.
 
 TODO (below : just an example in tikz)
 
@@ -102,3 +109,8 @@ TODO (below : just an example in tikz)
       (w1'.north -| l1'.east) rectangle (w2'.south -| e1'.west);
   \end{pgfonlayer}
 \end{tikzpicture}
+
+Dans la version colorée du réseau de Pétri du sémaphore, $P$ et $V$
+demeurent non concurrents l'un par rapport à l'autre, et, grâce aux
+couleurs associées aux processus, ne sont pas également pas
+concurrents par rapport à eux même.
