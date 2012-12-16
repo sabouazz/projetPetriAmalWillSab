@@ -1,8 +1,5 @@
 \section*{Exercice 2~: Spécification d'un protocole de communication}
 \subsection*{Question 1}
-
-TO FINISH!!
-
 \begin{center}
 \begin{tikzpicture}[node distance=2cm,>=stealth',bend angle=45,auto]
 
@@ -15,30 +12,53 @@ TO FINISH!!
 
   \begin{scope}
     \node [place, tokens=1] (rac)      [label=above:$u-raccroche$] {};
-    \node [place] (dem)      [below of=rac, label=above:$u-demLigne$] {};
-
- \node [transition] (acc) [below right
-   of=dem,label=right:$acceptation$] {};
-  \node [place] (com)  [below of=acc, label=right:$enComm$]
-          {};
-  \node [place] (conf)      [above right of=acc, label=above:$c-ConfRac$] {};
-   \node [place, tokens=1] (rep)   [above of=conf,label=above:$c-repos$] {};
+    \node [place] (dem)      [below of=rac, label=above:$u-demLigne$]{};
+    \node [transition] (acc) [below right of=dem,label=right:$acceptation$] {};
+    \node [place] (conf)      [above right of=acc, label=above:$c-ConfRac$] {};
+    \node [place, tokens=1] (rep)   [above of=conf,label=above:$c-repos$] {};
+    \node [place] (com)  [below of=acc, label=right:$enComm$]{};
     \node [transition] (udec) [left of=rac,label=left:$uDecroche$] {};
-   %   edge [pre,bend left]                  (dem)
-   %   edge [post,bend right]                (com);
-
     \node [transition] (racprem) [left of=dem,label=left:$raccPrem$] {};
-    %  edge [pre,bend left]                  (rac)
-    %  edge [post,bend right]                (com);
-    \node [transition] (confrep) [right of=rep,label=right:$confRep$]
-          {};
-          \node [transition] (racCom) [left
-            of=com,label=left:$racCom$] {};
-  \node [transition] (libe) [below of=com,label=right:$liberation$] {};
- \node [place] (faux)  [below of=libe, label=right:$enFauxAppel$] {};
-    \node [transition] (racfaux) [below of=faux,label=right:$racFauxAppel$] {};
-  \end{scope}
+    \node [transition] (confrep) [right of=rep,label=right:$confRep$]{};
+    \node [transition] (racCom) [left of=com,label=left:$racCom$] {};
+    \node [transition] (libe) [below of=com,label=right:$liberation$] {};
+    \node [place] (faux)  [below of=libe, label=right:$enFauxAppel$] {};
+    \node [transition] (racfaux) [below of=faux,label=below:$racFauxAppel$] {};
 
+    \path[every node/.style={font=\sffamily\small}]
+    (acc) 
+    edge [pre] (rep)
+    edge[pre](dem)
+    edge [post] (com)
+
+    (udec)
+    edge [pre]                  (rac)
+    edge [post]                (dem)
+
+    (confrep)
+    edge [pre]                  (conf)
+    edge [post]                (rep)
+
+    (racprem) 
+    edge [pre]                  (dem)
+    edge [post]                (rac)
+
+    (racCom)
+    edge [pre]                  (com)
+    edge [post,bend right = 20]                (conf)
+    edge [post,bend right]                (rac)
+
+    (libe)
+    edge [pre]                  (com)
+    edge [post]                (faux)
+
+    (racfaux)
+    edge [pre]                  (faux)
+    edge [post,bend left = 95]                (rac)
+    edge [post,bend right = 85]                (conf);
+
+  \end{scope}
+  
 \end{tikzpicture}
 \end{center}
 
