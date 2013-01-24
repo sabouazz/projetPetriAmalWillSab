@@ -119,19 +119,53 @@ p_4&0&-1&0&0&1&0&1 \\
 p_5&0&0&0&1&-1&-1&0 \\
 p_6&0&0&0&0&0&1&-1
 \end{pmatrix}$
-\textbf{Calcul de P-flot}\\
+
+
+\textbf{Calcul des P-flots}
+
 $-p_1 + p_3=0 \Rightarrow p_1=p_3$
+
 $p_2 - p_4=0 \Rightarrow p_2=p_4$
+
 $-p_3 + p_1=0 \Rightarrow p_3=p_1$
+
 $-p_2 - p_3 + p_5=0 \Rightarrow p_4=p_7$
+
 $-p_5 + p_4 + p_1=0 \Rightarrow p_5=p_6$
+
 $-p_5 + p_6=0$
-$ p_1 + p_4 - p_6=0$\\
-Donc le vecteur p-flot est~: ($p_3,p_4,p_3,p_4,p_4 + p_3,p_4 + p_3$) $\Rightarrow$ (1,0,1,0,1,1),(0,1,0,1,1,1).\\
+
+$ p_1 + p_4 - p_6=0$
+
+
+Donc le vecteur p-flot est~: 
+
+($p_3,p_4,p_3,p_4,p_4 + p_3,p_4 + p_3$) $\Rightarrow$
+(1,0,1,0,1,1),(0,1,0,1,1,1).
+
+
 $M(p_1)+M(p_3)+M(p_5)+M(p_6)=1$
+
+
 $M(p_2)+M(p_4)+M(p_5)+M(p_6)=1$
+
 \subsection*{Question 4}
-\textbf{Calcul de P semi-flot}\\
 
+\textbf{Calcul des P semi-flots}
 
-TODO
+ $ \begin{pmatrix}
+M&t_1&t_2&t_3&t_4 \\
+p_1+p_3& -1&1&0&1 \\
+p_2+p_4&-1&1&0&1 \\
+p_5&1&-1&-1&0 \\
+p_6&0&0&1&-1
+\end{pmatrix}$
+
+ $ \begin{pmatrix}
+M&t_1&t_2 \\
+p_1+p_3+p_5& -1&1 \\
+p_2+p_4+p_5&-1&1 \\
+p_6&1&-1
+\end{pmatrix}$
+
+Les P semi-flots sont donc $p_1+p_3+p_5+p_6$ et $p_2+p_4+p_5+p_6$.
