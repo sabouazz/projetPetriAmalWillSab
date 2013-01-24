@@ -100,18 +100,24 @@ ce fait le réseau est forcément cohérent.
 
 \subsection*{Question 3}
 
-Matrice $C$ d'incidence du réseau de pétri.
+Notons $P_1$ la place $u-raccroche$, $P_2$ --> $c-repos$, $P_3$ -->
+$u-demLigne$, $P_4$ --> $c-ConfRac$, $P_5$ --> $enComm$, $P_6$ -->
+$enFauxAppel$.
 
-TODO !!!!!!! (just an example below)
+De même, notons $t_1$ la transition $uDecroche$, $t_2$ --> $confRep$,
+$t_3$ --> $racCom$, $t_4$ --> $acceptation$, $t_5$ --> $racCom$, $t_6$
+--> $liberation$, $t_7$ --> $racFauxAppel$.
+
+Matrice $C$ d'incidence du réseau de pétri.  
+
  $ \begin{pmatrix}
-C&t_1&t_2&t_3&t_4&t_5&t_6 \\
-p_1& -1&0&0&0&0&1 \\
-p_2&1&-1&0&0&0&0 \\
-p_3&1&0&-1&0&0&0 \\
-p_4&0&1&0&-1&0&0 \\
-p_5&0&0&1&0&-1&0 \\
-p_6&0&0&0&0&1&-1 \\
-p_7&0&0&0&1&0&-1 
+C&t_1&t_2&t_3&t_4&t_5&t_6&t_7 \\
+p_1& -1&0&1&0&1&0&1 \\
+p_2&0&1&0&-1&0&0&0 \\
+p_3&1&0&-1&-1&0&0&0 \\
+p_4&0&-1&0&0&1&0&1 \\
+p_5&0&0&0&1&-1&-1&0 \\
+p_6&0&0&0&0&0&1&-1
 \end{pmatrix}$
 \textbf{Calcul de P-flot}\\
 $-p_1 + p_3=0 \Rightarrow p_1=p_3$
