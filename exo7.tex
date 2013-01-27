@@ -6,29 +6,29 @@
   \tikzstyle{place}=[circle,thick,draw=blue!75,fill=blue!20,minimum size=6mm]
   \tikzstyle{red place}=[place,draw=red!75,fill=red!20]
   \tikzstyle{transition}=[rectangle,thick,draw=black!75,
-  			  fill=black!20,minimum size=4mm]
+   fill=black!20,minimum size=4mm]
 
   \tikzstyle{every label}=[red]
 
   \begin{scope}
-    \node [place] (w1)      [label=above:$exec1$] {};
-    \node [place] (w2)      [below of=w1, label=above:$exec2$] {};
-    \node [place,tokens=1] (s)  [below of=c1] {};
+    \node [place] (w1) [label=above:$exec1$] {};
+    \node [place] (w2) [below of=w1, label=above:$exec2$] {};
+    \node [place,tokens=1] (s) [below of=w2] {};
 
     \node [transition] (e1) [below left of=w2,label=right:$P2$] {}
-      edge [pre,bend left]                  (w2)
-      edge [post,bend right]                (s);
+      edge [pre,bend left] (w2)
+      edge [post,bend right] (s);
 
     \node [transition] (e2) [left of=e1,label=right:$P1$] {}
-      edge [pre,bend left]                  (w1)
-      edge [post,bend right]                (s);
+      edge [pre,bend left] (w1)
+      edge [post,bend right] (s);
 
    \node [transition] (l1) [below right of=w2,label=left:$V2$] {}
-      edge [pre,bend left]                  (s)
+      edge [pre,bend left] (s)
       edge [post,bend right] node[swap] {} (w2);
       
    \node [transition] (l2) [right of=l1,label=left:$V1$] {}
-      edge [pre,bend left]                  (s)
+      edge [pre,bend left] (s)
       edge [post,bend right] node[swap] {} (w1);
   \end{scope}
 \end{tikzpicture}
