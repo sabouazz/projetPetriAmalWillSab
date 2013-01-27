@@ -1,53 +1,18 @@
 \section*{Exercice 4~: Spécification d'une construction d'une maison}
 \subsection*{Question 1}
-
-TODO (below : just an example in tikz)
-
-\begin{tikzpicture}[node distance=1.3cm,>=stealth',bend angle=45,auto]
-
-  \tikzstyle{place}=[circle,thick,draw=blue!75,fill=blue!20,minimum size=6mm]
-  \tikzstyle{red place}=[place,draw=red!75,fill=red!20]
-  \tikzstyle{transition}=[rectangle,thick,draw=black!75,
-  			  fill=black!20,minimum size=4mm]
-
-  \tikzstyle{every label}=[red]
-
-  \begin{scope}
-    % First net
-    \node [place,tokens=1] (rac-u)                           {};
-    \node [place] (c1) [below of=rac-u]                      {};
-    \node [place] (s)  [below of=c1,label=above:$s\le 3$] {};
-    \node [place] (c2) [below of=s]                       {};
-    \node [place,tokens=1] (repos-c) [below of=c2]                      {};
-
-    \node [transition] (e1) [left of=c1] {}
-      edge [pre,bend left]                  (rac-u)
-      edge [post,bend right]                (s)
-      edge [post]                           (c1);
-
-    \node [transition] (e2) [left of=c2] {}
-      edge [pre,bend right]                 (repos-c)
-      edge [post,bend left]                 (s)
-      edge [post]                           (c2);
-
-    \node [transition] (l1) [right of=c1] {}
-      edge [pre]                            (c1)
-      edge [pre,bend left]                  (s)
-      edge [post,bend right] node[swap] {4} (rac-u);
-
-    \node [transition] (l2) [right of=c2] {}
-      edge [pre]                            (c2)
-      edge [pre,bend right]                 (s)
-      edge [post,bend left]  node {2}       (repos-c);
-  \end{scope}
-
-  \begin{pgfonlayer}{background}
-    \filldraw [line width=4mm,join=round,black!10]
-      (rac-u.north  -| l1.east)  rectangle (repos-c.south  -| e1.west);
-  \end{pgfonlayer}
-\end{tikzpicture}
-
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[height = 10cm]{exo41.eps} 
+\caption{PT-net where each task is represented by a transition}
+\end{center} 
+\end{figure} 
 \subsection*{Question 2}
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[height = 10cm]{exo42.eps} 
+\caption{PT-net where each task is represented by a place}
+\end{center} 
+\end{figure}
 \subsection*{Question 3}
 
 Bien que les deux réseaux de pétri conservent la sémantique, le
