@@ -1,5 +1,9 @@
 \section*{Exercice 8~: L'utilisation des réseaux de Pétri pour le
   contrôle des trains}
+  
+\emph{Nous suiverons ici le schèma, qui représente 6 secteurs allant de 1 à 6, 
+et non l'énoncé, qui évoque 7 secteurs de 1 à 7. Pour la question 3 les secteurs
+seront, pour simplicité de notation, supposés numérotés 0 à n et non de 1 à n+1.}
 
 \subsection*{Question 1}
 
@@ -77,3 +81,35 @@ réseau non-coloré.
 
 
 \subsection*{Question 3}
+
+Soit le réseau suivant~:
+
+\begin{center}
+\includegraphics[height = 0.4\paperwidth]{exo8_coloured_3.eps}
+\end{center}
+
+Ici chaque couleur est une paire $c \in Trains \cup NULL \times Sectors$. 
+Pour l'exemple~:
+
+$Trains = \{ A, B\}$
+
+$Sectors = \{0, \ldots{}, 5\}$
+
+Les secteurs sont notés à partir de 0 et non 1 pour permettre la plus simple 
+utilisation des modulo. 
+Posons d'ailleurs $n\oplus{m} = (n+m)\mod{\left|Sectors\right|}$. 
+Nous avons $5\oplus{1} = 0$ pour l'exemple.
+
+$c = (T, i)$ sera noté $T_i$ par la suite. Il nous suffit de définir maintenant 
+$in$ et $out$ de manière à ce que le réseau ait tous les propriétés souhaités.
+
+Soit~:
+
+$in(T_i) = T_{i} + NULL_{i\oplus{1}} + NULL_{i\oplus{2}}$
+
+Et~:
+
+$out(T_i) = NULL_{i} + T_{i\oplus{1}} + NULL_{i\oplus{2}}$
+
+Avec bien sur $dom(in) = dom(out) = Trains \times Sectors$. Autrement dit 
+$\forall i$, $in(NULL_i)$ et $out(NULL_i)$ non-définis.
