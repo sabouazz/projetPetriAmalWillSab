@@ -35,23 +35,9 @@ Le graphe des marquages accessibles associé au réseau de la figure $3$
 est le suivant~:
 $(p_1, p_2, p_3, p_4, p_5, p_6, p_7)$
 
-**************************************
-
-(sommet $0$) $(1, 0, 0, 0, 0, 0, 0)$
-
-(a pour voisin)
-
-(sommet $1$) $(0, 1, 1, 0, 0, 0, 0)$
-
-(a pour voisin)
-
-(sommet $2$) $(0, 0, 0, 1, 1, 0, 0)$
-
-(a pour voisin)
-
-(sommet $3$) $(0, 0, 0, 0, 0, 1, 1)$
-
-et retour à sommet $0$.
+\begin{center}
+\includegraphics[height=6cm]{exo1_2.eps}
+\end{center}
 
 \subsection*{Question 6}
 Matrice $C$ d'incidence du réseau de pétri de la figure $3$.
@@ -69,7 +55,7 @@ p_7&0&0&0&1&0&-1
 
 \subsection*{Question 7}
 Calcul des P-semi flots associés au réseau de la figure
-$3$. Appliquons pour cela l'algorithme de Farkas. sur la matrice $C$
+$3$. Appliquons pour cela l'algorithme de Farkas sur la matrice $C$
 précédente.
 
 On commence par  
@@ -108,6 +94,6 @@ seule transition d'entrée et une seule transition de sortie.
 
 Les deux circuits élémentaires sont~:
 \begin{itemize}
-\item $p_1 -->p_3 --> p_5 --> p_6 --> p_1$
-\item $p_1 --> p_2 --> p_4 --> p_7 --> p_1$
+\item $p_1$ $\rightarrow$ $p_3$ $\rightarrow$ $p_5$ $\rightarrow$ $p_6$ $\rightarrow$ $p_1$
+\item $p_1$ $\rightarrow$ $p_2$ $\rightarrow$ $p_4$ $\rightarrow$ $p_7$ $\rightarrow$ $p_1$
 \end{itemize}

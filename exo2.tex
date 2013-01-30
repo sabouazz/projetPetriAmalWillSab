@@ -73,11 +73,9 @@ trois sous-réseaux~:
 \item le réseau synchronisé.
 \end{itemize}
 
-% insert image schématique du réseau hierarchique
 \begin{center}
 \includegraphics[width=9cm]{schemaexo2.eps}
 \end{center}
-
 
 Nous pouvons constater pour commencer que les jetons ne sont pas
 dupliqués à l'intérieur de ces réseaux. Remarquons ensuite que le
@@ -100,13 +98,31 @@ ce fait le réseau est forcément cohérent.
 
 \subsection*{Question 3}
 
-Notons $P_1$ la place $u-raccroche$, $P_2$ --> $c-repos$, $P_3$ -->
-$u-demLigne$, $P_4$ --> $c-ConfRac$, $P_5$ --> $enComm$, $P_6$ -->
-$enFauxAppel$.
+Notons $P_1$ la place $u-raccroche$, 
 
-De même, notons $t_1$ la transition $uDecroche$, $t_2$ --> $confRep$,
-$t_3$ --> $racCom$, $t_4$ --> $acceptation$, $t_5$ --> $racCom$, $t_6$
---> $liberation$, $t_7$ --> $racFauxAppel$.
+$P_2$ $\rightarrow$ $c-repos$, 
+
+$P_3$ $\rightarrow$ $u-demLigne$, 
+
+$P_4$ $\rightarrow$ $c-ConfRac$, 
+
+$P_5$ $\rightarrow$ $enComm$, 
+
+$P_6$ $\rightarrow$ $enFauxAppel$.
+
+De même, notons $t_1$ la transition $uDecroche$, 
+
+$t_2$ $\rightarrow$ $confRep$,
+
+$t_3$ $\rightarrow$ $racCom$, 
+
+$t_4$ $\rightarrow$ $acceptation$, 
+
+$t_5$ $\rightarrow$ $racCom$, 
+
+$t_6$ $\rightarrow$ $liberation$, 
+
+$t_7$ $\rightarrow$ $racFauxAppel$.
 
 Matrice $C$ d'incidence du réseau de pétri.  
 
@@ -123,20 +139,34 @@ p_6&0&0&0&0&0&1&-1
 
 \textbf{Calcul des P-flots}
 
-$-p_1 + p_3=0 \Rightarrow p_1=p_3$
 
-$p_2 - p_4=0 \Rightarrow p_2=p_4$
+\begin{equation}
+\begin{cases}
+-p_1 + p_3 = 0 \\
 
-$-p_3 + p_1=0 \Rightarrow p_3=p_1$
+p_2 - p_4 = 0 \\
 
-$-p_2 - p_3 + p_5=0 \Rightarrow p_4=p_7$
+-p_3 + p_1 = 0 \\
 
-$-p_5 + p_4 + p_1=0 \Rightarrow p_5=p_6$
+-p_2 - p_3 + p_5 = 0 \\
 
-$-p_5 + p_6=0$
+-p_5 + p_4 + p_1 = 0 \\
 
-$ p_1 + p_4 - p_6=0$
+-p_5 + p_6 = 0 \\
 
+ p_1 + p_4 - p_6 = 0
+\end{cases}
+\end{equation}
+
+\begin{equation}
+\begin{cases}
+p_1 = p_3 \\
+
+p_2 = p_4 = p_7 \\
+
+p_5 = p_6 = p_4 + p_3
+\end{cases}
+\end{equation}
 
 Donc le vecteur p-flot est~: 
 
